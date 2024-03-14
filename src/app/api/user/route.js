@@ -1,0 +1,16 @@
+import User from "@/models/userModel";
+import connectDB from "@/utils/datababseConnection";
+
+
+export const GET = async (req) => {
+    try {
+        const id = req.nextUrl.searchParams.get('id');
+        await connectDB()
+        const userPost = await User.findOne({ _id:id })
+        return Response.json(userPost)
+    } catch (error) {
+        return Response.json({ error: error.message })
+    }
+}
+
+
