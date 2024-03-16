@@ -5,6 +5,7 @@ import connectDB from "@/utils/datababseConnection";
 export const GET = async (req) => {
     try {
         const _id = await req.nextUrl.searchParams.get('userid');
+        
         await connectDB()
         const contacts = await User.findOne({ _id }, { contacts: 1 })
         const contactsId = contacts.contacts
