@@ -9,7 +9,6 @@ const ContactList = ({setContact ,session}) => {
         const getContacts = async () => {
             try {
                 const userId =session.user.id;
-                console.log(userId);
                 const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/user/contacts?userid=${userId}`)
                 const data = await res.json()
                 setContacts(data)
@@ -20,7 +19,6 @@ const ContactList = ({setContact ,session}) => {
         getContacts()
        
             getContacts()
-            console.log(session.user.id);
         
     }, [])
 
@@ -28,12 +26,12 @@ const ContactList = ({setContact ,session}) => {
         <>
             {
                 contacts?.map((contact) => (
-                    <div onClick={ (e)=> setContact(contact) } key={contact._id} className='flex hover:bg-white hover:shadow-lg  cursor-pointer  gap-2 items-center border-b-[1px] border-gray-400 '>
+                    <div onClick={ (e)=> setContact(contact) } key={contact._id} className='flex hover:bg-white hover:shadow-lg  cursor-pointer  gap-2 items-center border-b-[1px] px-4 border-gray-400 '>
                         {/* <Image src={''} width={100} height={100}  /> */}
-                        <div className=' mx-3  w-7 h-7 rounded-full bg-slate-900 text-white  flex justify-center items-center  ' >
-                            SS
+                        <div className=' w-8 h-8 rounded-full bg-blue-500 text-white  flex justify-center items-center  ' >
+                            {contact.username.charAt(0)}
                         </div>
-                        <p className=' p-2 capitalize ' >{contact.username}</p>
+                        <p className=' p-3 capitalize ' >{contact.username}</p>
                     </div>
                 ))
             }

@@ -62,10 +62,10 @@ const MessageSection = ({ contact, session }) => {
                                 <div className=' mx-3  w-7 h-7 rounded-full bg-slate-900 text-white  flex justify-center items-center  ' >
                                     SS
                                 </div>
-                                <p className=' p-2 capitalize ' >{contact.username}</p>
+                                <p className=' p-3 capitalize ' >{contact.username}</p>
                             </div>
                         </div>
-                        <div className='h-[90%]  p-3' >
+                        <div className='h-[90%] p-3 overflow-y-scroll' >
                             {
                                 messages?.map((msg) => (
                                     msg.reciverID == session.user.id ? (<div key={msg._id} className='  relative m-2   text-sm float-left rounded-lg p-2 bg-white w-[80%]'>
