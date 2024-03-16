@@ -1,7 +1,7 @@
 import postItem from "@/models/newPostModel";
 import connectDB from "@/utils/datababseConnection";
 
-
+// user post api 
 export const GET = async (req) => {
 
     try {
@@ -13,6 +13,8 @@ export const GET = async (req) => {
         return Response.json({ error: error.message })
     }
 }
+
+//user post delete
 
 export const DELETE = async (req) => {
 

@@ -1,4 +1,5 @@
 'use client'
+import ContactList from '@/components/ContactList'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
@@ -20,9 +21,10 @@ const initialState = [
         time: '1:33',
     }
 ]
-const authid = 2
+const authid = '65ce49b1011a168db1464243'
 const contactid = 1
 const Message = () => {
+
     const [msg, setMsg] = useState('')
     const [messages, setMessages] = useState(initialState)
     const handleChangeMsg = (e) => {
@@ -52,14 +54,7 @@ const Message = () => {
     return (
         <div className=' w-full flex min-h-[500px] justify-center' >
             <div className='w-[30%] bg-secondary '>
-                <div className='flex hover:bg-white hover:shadow-lg  cursor-pointer  gap-2 items-center border-b-[1px] border-gray-400 '>
-                    {/* <Image src={''} width={100} height={100}  /> */}
-                    <div className=' mx-3  w-7 h-7 rounded-full bg-slate-900 text-white  flex justify-center items-center  ' >
-                        SS
-                    </div>
-                    <p className=' p-2 capitalize ' >sakthi</p>
-                </div>
-
+             <ContactList  />
             </div>
             <div className='w-[60%]  flex flex-col  bg-secondary-light   '>
                 <div>
