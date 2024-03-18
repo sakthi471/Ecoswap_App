@@ -4,7 +4,7 @@ import Profile from '@/components/Profile'
 
 
 const DashBoard = () => {
-    console.log('this from client');
+    
   return (
     <div className='w-full flex   min-h-screen '>
       <Profile />

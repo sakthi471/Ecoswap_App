@@ -38,10 +38,7 @@ export const POST = async (req) => {
             senderID,
             reciverID,
         }
-        const res=  await messageModel.create(newMessage)
-         await User.updateOne({_id:senderID},{ $push: { contacts: reciverID} })
-         await User.updateOne({_id:reciverID},{ $push: { contacts: senderID} })
-       
+        const res=  await messageModel.create(newMessage)  
         return Response.json(res, { status: 200 })
     } catch (error) {
         console.log(error.message);

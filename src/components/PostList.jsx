@@ -21,6 +21,7 @@ const PostList = () => {
            {
             data?.map( (post)=>( <  Post key={post._id} post={post} mutate={mutate} />))
            }
+          
         </div>  
     )
 }

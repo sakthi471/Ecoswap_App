@@ -15,8 +15,8 @@ export const POST=async(req)=>{
             itemID
         } 
         await messageModel.create(newMessage)
-         await User.updateOne({_id:senderID},{ $push: { contacts: reciverID} })
-         await User.updateOne({_id:reciverID},{ $push: { contacts: senderID} })
+         await User.updateOne({_id:senderID},{ $addToSet: { contacts:reciverID } })
+         await User.updateOne({_id:reciverID},{ $addToSet: { contacts: senderID} })
 
 
         return Response.json({message:'success'},{status:201})

@@ -23,7 +23,13 @@ const  postItemSchema=new Schema({
     userId:{
         type:String,
         required:true,
+    },
+    promised:{
+        type:Boolean,
+        default:false,
+        
     }
+
 },{timestamps:true})
 
 const postItem=models.postItem|| model("postItem", postItemSchema)

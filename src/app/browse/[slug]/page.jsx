@@ -26,7 +26,6 @@ const BrowseDetails = async ({ params }) => {
   const userDetails = await getUserDetails(userId)
   const session= await auth()
    
-  console.log(userDetails._id,userId,params.slug);
 
   return (
     <div className=' w-full flex items-center flex-col pt-3 '>
