@@ -15,13 +15,13 @@ export default function RootLayout({ children }) {
       <body  >
         <SessionProvider >
 
-        <div className={` text-text   w-full  flex flex-col items-center min-h-screen justify-center bg-background`} >
-          <NavBar />
-            <div className='w-[85%] flex flex-col h-full items-center justify-center  my-14 '>
+          <div className={` text-text   w-full  flex flex-col items-center min-h-screen  bg-background`} >
+            <NavBar />
+            <div className='w-[85%] flex flex-col h-full  justify-center items-center my-14 '>
               {children}
             </div>
-          
-        </div>
+
+          </div>
         </SessionProvider>
 
       </body>

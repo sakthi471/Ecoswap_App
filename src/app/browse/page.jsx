@@ -1,6 +1,11 @@
 import ItemCard from '@/components/ItemCard'
 import React from 'react'
 
+export const metadata = {
+  title: 'Browse',
+  description: 'Ecoswap browse page',
+}
+
 
 const getPostItem=async()=>{
       const res= await fetch(`${process.env.NEXT_PUBLIC_API_URI}/browse`,{cache:'no-store'  })

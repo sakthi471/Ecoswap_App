@@ -32,7 +32,7 @@ const RegisterForm = () => {
                     <input required id='password' className=' border-gray-500 border-[1px] outline-primary rounded-sm px-4 py-2' type="password" placeholder='password' name='password' />
                 </div>
                 <div className=' flex flex-col '>
-                    <label htmlFor="passwordReapt">Re Enter the Password</label>
+                    <label htmlFor="passwordReapt">Confirm the Password</label>
                     <input required id='passwordReapt' className=' border-gray-500 border-[1px] outline-primary rounded-sm px-4 py-2' type="password" placeholder='password again' name='passwordReapt' />
                 </div>
                 <button className=' rounded-sm  bg-primary hover:bg-accent p-2 text-white '>Register</button>
