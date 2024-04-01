@@ -41,7 +41,7 @@ const Post = ({ post, mutate }) => {
             <div className='w-[60%] p-2 '>
                 <p className='font-semibold'> {post.title} </p>
                 <p>{post.description}</p>
-                <small>Just Now</small>
+                <small>{post.timeAgo}</small>
             </div>
             <div className=' px-2 flex flex-col py-1 justify-around h-full '>
 

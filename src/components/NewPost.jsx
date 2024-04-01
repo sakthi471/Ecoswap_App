@@ -20,7 +20,8 @@ const NewPost = (e) => {
      
     useEffect( ()=>{
        if(msg?.msg=='success'){
-          setTimeout(()=> router.push('/dashboard'),1000)
+         router.push('/dashboard')
+          
         }
     },[msg])
 

@@ -26,7 +26,7 @@ const Replay = ({ userDetails, session, itemID }) => {
                itemID,
             })
          })
-         router.push('/dashboard/message')
+         router.push('/dashboard')
       } catch (error) {
          console.log(error);
       }

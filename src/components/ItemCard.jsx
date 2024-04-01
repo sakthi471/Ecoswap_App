@@ -17,7 +17,7 @@ const ItemCard = ({ item }) => {
         <div className=' min-h-[50px] flex justify-between border-l-[4px] border-primary px-4  py-2'>
           <div>
             <p className=' font-bold '>{item.title}</p>
-            <p className=' text-sm'>3 days ago</p>
+            <p className=' text-xs '>{item.timeAgo}</p>
           </div>
           <div>
             {item.promised && <button className=' border-[1px] bg-red-400 text-xs px-2 py-1 rounded-sm  text-white '>promised </button>
@@ -28,7 +28,6 @@ const ItemCard = ({ item }) => {
     </Link>
 
   )
-
 }
 
 export default ItemCard

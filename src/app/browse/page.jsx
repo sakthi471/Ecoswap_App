@@ -18,13 +18,13 @@ const getPostItem=async()=>{
 
 const Browse = async() => {
     const postItem= await getPostItem()
+    console.log(postItem);
     
   return (
     <div className=' flex flex-wrap justify-center gap-14 py-8 items-center'>
          {
-            postItem.map( (item)=>(
+            postItem?.map( (item)=>(
                 <ItemCard key={item._id} item={item} />
-                
             ))
          }        
     </div>

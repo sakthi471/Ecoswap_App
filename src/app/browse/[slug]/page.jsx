@@ -22,7 +22,7 @@ const getUserDetails = async (userId) => {
 }
 
 const BrowseDetails = async ({ params }) => {
-  const { title, img, description, userId } = await getItemDetails(params.slug)
+  const { title, img, description, userId ,timeAgo} = await getItemDetails(params.slug)
   const userDetails = await getUserDetails(userId)
   const session= await auth()
    
@@ -38,7 +38,7 @@ const BrowseDetails = async ({ params }) => {
           <div className='w-full min-h-[50px] p-2 bg-blue-100  border-l-4 border-accent'>
             <p>From     <span className=' font-bold capitalize'>{userDetails?.username}</span>
             </p>
-            <small>3 days ago</small>
+            <small>{timeAgo}</small>
           </div>
           <p className=' mt-5  text-gray-500'> {description}</p>
         </div>
