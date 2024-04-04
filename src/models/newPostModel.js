@@ -45,26 +45,25 @@ postItemSchema.virtual('timeAgo').get(function() {
 
 
     // Define time units
-    const intervals = {
-        year: 31536000,
-        month: 2592000,
-        week: 604800,
-        day: 86400,
-        hour: 3600,
-        minute: 60
-    };
+    const intervals = [
+        { unit: 'year', value: 31536000 },
+        { unit: 'month', value: 2592000 },
+        { unit: 'week', value: 604800 },
+        { unit: 'day', value: 86400 },
+        { unit: 'hour', value: 3600 },
+        { unit: 'minute', value: 60 }
+    ];
 
     // Calculate time ago
     let timeAgo = '';
-    for (const [unit, value] of Object.entries(intervals)) {
+    for (const { unit, value } of intervals) {
         const intervalCount = Math.floor(seconds / value);
         if (intervalCount > 0) {
-            timeAgo += `${intervalCount} ${unit}${intervalCount === 1 ? '' : 's'} ago `;
-            seconds -= intervalCount * value;
+            timeAgo = `${intervalCount} ${unit}${intervalCount === 1 ? '' : 's'} ago`;
+            break; 
         }
     }
 
-    // Return the formatted time ago string
     return timeAgo.trim();
 });
 
