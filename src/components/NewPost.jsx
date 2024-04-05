@@ -1,4 +1,5 @@
 "use client"
+import AlertConfirm from '@/utils/confirm'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -17,17 +18,6 @@ const NewPost = (e) => {
    const [msg, setMsg] = useState(null)
 
    const router = useRouter()
-
-   //  useEffect( ()=>{
-   //     if(msg?.msg=='success'){
-   //       router.push('/dashboard')
-
-   //      }
-   //  },[msg])
-
-
-
-
    const handleImg = (e) => {
       try {
          var reader = new FileReader()
@@ -49,10 +39,13 @@ const NewPost = (e) => {
    }
    const handleSubmit = async (e) => {
       try {
-         const confirmValue = confirm("Are you want to post this Item")
+         e.preventDefault()
+         const confirmValue =await AlertConfirm("Are you sure want to post this ")
+         console.log(confirmValue);
+          
          if (confirmValue) {
             setLoader(true)
-            e.preventDefault()
+            
             const newPost = {
                img,
                ...input

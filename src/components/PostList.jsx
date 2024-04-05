@@ -14,7 +14,7 @@ const PostList = () => {
      const { data, error, mutate, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_API_URI}/user/post?id=${userId}`, fetcher)
             
     return (
-        <div className='flex w-[40%] flex-col gap-5 '>
+        <div className='flex w-[40%] flex-col gap-5  pr-5 overflow-auto h-[500px] '>
           <p className=' font-bold text-text  text-2xl py-1'>Your post</p>
            {isLoading && <p> Loading... </p> }
            {error && <p> failed to fetch the data</p> }

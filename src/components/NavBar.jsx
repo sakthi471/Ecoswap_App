@@ -6,6 +6,7 @@ import NavLinks from './NavLinks';
 import { auth } from '@/lib/auth';
 import { handleGithubLogout } from '@/lib/action';
 import Profile from './Profile';
+import { generateColor } from '@/utils/ColorGenerator';
 
 
 
@@ -37,9 +38,9 @@ const links = [
 
 const NavBar = async () => {
 
-
     const session = await auth();
-    console.log(session);
+    const color = generateColor(session?.user.username || '')
+   
 
     return (
         <nav className=' z-10 bg-white fixed top-0 left-0   w-full h-[50px] text-text flex justify-between px-20 items-center border-b-[1px]  '>
@@ -65,17 +66,17 @@ const NavBar = async () => {
                                 )
 
                             }
-                          <div className='group  w-full h-full'>
-                          <div className=' relative w-8 h-8 cursor-pointer  rounded-full bg-gray-300 flex justify-center items-center '>
-                                <p> { session.user.username.split(" ").map( word=> word[0]).join("").toUpperCase()} </p>
-                                <form className=' absolute  hidden flex-col rounded-lg  justify-center top-7   bg-white shadow-lg -right-10  group-hover:flex' action={handleGithubLogout}>
-                                    <p className='px-4 py-1 border-b-[1px] border-gray-300' >{session.user.username}</p>
-                                    <hr className=' ' />
-                                    <button className='  bg-primary px-4 py-1 border-b-[1px] border-gray-300 border-none  text-sm text-white hover:bg-accent'>Logout</button>
-                                </form>
+                            <div className='group  w-full h-full'>
+                                <div style={{ backgroundColor: color,}} className={`relative w-8 h-8 cursor-pointer  rounded-full  flex justify-center items-center `}>
+                                    <p className=' text-white '> {session.user.username.split(" ").map(word => word[0]).join("").toUpperCase()} </p>
+                                    <form className=' overflow-hidden absolute  hidden flex-col  rounded-lg  justify-center top-7  bg-white   shadow-2xl -right-10  group-hover:flex' action={handleGithubLogout}>
+                                        <p className='px-4 py-1   border-b-[1px] border-gray-300' >{session.user.username}</p>
+                                        
+                                        <button className='  bg-primary  px-4 py-1 border-b-[1px] border-gray-300 border-none  text-sm text-white hover:bg-accent'>Logout</button>
+                                    </form>
+                                </div>
                             </div>
-                          </div>
-                    
+
                         </>
                     ) : (
                         <NavLinks item={{ title: 'login', url: '/login' }} />

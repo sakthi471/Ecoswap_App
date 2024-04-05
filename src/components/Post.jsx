@@ -1,4 +1,5 @@
 'use client'
+import AlertConfirm from '@/utils/confirm';
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { MdDelete } from "react-icons/md";
@@ -6,11 +7,11 @@ import { MdDelete } from "react-icons/md";
 
 const Post = ({ post, mutate }) => {
     const [promised, setPromised] = useState(post?.promised)
-    const handleDeletePost = (postId) => {
-        const confirmValue = confirm("Are you sure want to delete this post")
+    const handleDeletePost = async(postId) => {
+        const confirmValue = await AlertConfirm("Are you sure want to delete this post")
         if (confirmValue) {
 
-            fetch(`${process.env.NEXT_PUBLIC_API_URI}/user/post?id=${postId}`, {
+          await  fetch(`${process.env.NEXT_PUBLIC_API_URI}/user/post?id=${postId}`, {
                 method: 'DELETE',
             })
             mutate()

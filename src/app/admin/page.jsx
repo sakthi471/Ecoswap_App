@@ -1,9 +1,17 @@
-import React from 'react'
+'use client'
 
-const Admin = () => {
-  return (
-    <div>Admin</div>
-  )
-}
+import AlertConfirm from "@/utils/confirm";
 
-export default Admin
+const MyPage = () => {
+
+    const handleClick = async () => {
+        const result = await AlertConfirm('Are you absolutely sure?');
+        console.log(result);
+    };
+
+    return (
+        <button onClick={handleClick}>Click me</button>
+    );
+};
+
+export default MyPage;

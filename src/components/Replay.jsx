@@ -1,4 +1,5 @@
 'use client'
+import AlertConfirm from '@/utils/confirm'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
@@ -10,23 +11,21 @@ const Replay = ({ userDetails, session, itemID }) => {
 
    const messageSubmit = async () => {
       try {
-         const confirmation = confirm("Are you sure want post this")
+         const confirmation = await AlertConfirm("Are you sure want post this")
          console.log(confirmation);
-       
-         if (!confirmation) {
-            return;
-         }
-
-         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/browse/message`, {
-            method: 'POST',
-            body: JSON.stringify({
-               message,
-               senderID: session?.user?.id,
-               reciverID: userDetails?._id,
-               itemID,
+         if(confirmation){
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/browse/message`, {
+               method: 'POST',
+               body: JSON.stringify({
+                  message,
+                  senderID: session?.user?.id,
+                  reciverID: userDetails?._id,
+                  itemID,
+               })
             })
-         })
-         router.push('/dashboard')
+            router.push('/dashboard')
+         }
+      
       } catch (error) {
          console.log(error);
       }
