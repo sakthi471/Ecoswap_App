@@ -5,7 +5,10 @@ const AlertDialog = ({ isOpen, onClose, message,onConfirm }) => {
 
     const handleOKClick = () => {
         onConfirm(true)
+        
     };
+
+    
 
     const handleClose = () => {
         onClose();

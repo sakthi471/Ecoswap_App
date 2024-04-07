@@ -7,6 +7,7 @@ export const GET = async (req) => {
         const id = req.nextUrl.searchParams.get('id');
         await connectDB()
         const userPost = await User.findOne({ _id:id })
+        console.log(userPost);
         return Response.json(userPost)
     } catch (error) {
         return Response.json({ error: error.message })

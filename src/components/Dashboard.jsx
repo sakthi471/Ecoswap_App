@@ -23,7 +23,7 @@ const DashBoard = () => {
       <PostList />
       <div className=' w-full flex min-h-[500px] justify-center' >
      
-        <div className='w-[30%] bg-gray-100 '>
+        <div className='w-[30%] bg-gray-100 flex flex-col items-center'>
           <div className=' w-full bg-primary  font-semibold '>
             <p className=' text-2xl p-2  text-white'>Chats</p>
           </div>

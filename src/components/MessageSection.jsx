@@ -113,7 +113,7 @@ const MessageSection = ({ contact, session }) => {
                 ) : (
                     <div className=' w-full flex flex-col gap-4 justify-center items-center h-full '>
                         <p className='  text-gray-400 font-bold text-xl'> Welcome to EcoSwap</p>
-                        <p className=' text-gray-400  text-xl' > select contact and message</p>
+                        <p className=' text-gray-400  text-xl capitalize ' > select contact and message</p>
                         <FaMessage className=' text-accent' size={40} />
                     </div>
                 )

@@ -5,13 +5,13 @@ import ItemCard from './ItemCard'
 import Loader from './Loader'
 import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
+import DataNotFound from './DataNotFound'
 
 const Browse = () => {
     const [post, setPost] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    // Number of items per page
  
     const handlePreviousPage = () => {
         setPage((prevPage) => Math.max(prevPage - 1, 1));
@@ -22,15 +22,22 @@ const Browse = () => {
         setPage((prevPage) => Math.min(prevPage + 1, totalPages));
       };
 
+
+      post?.map((item) => (
+        <ItemCard key={item._id} item={item} />
+    ))
     return (
         <div className=' w-full flex  flex-col  '>
             <Search setPost={setPost} setLoading={setLoading} page={page} setTotalPages={setTotalPages} />
-            <div className=' flex w-full min-h-[400px] flex-wrap justify-center gap-14 py-8 items-center'>
+            <div className=' flex w-full min-h-[300px] flex-wrap justify-center gap-14 py-8 items-center'>
                 {
                     loading ? (<Loader message='please wait' size='50' />) : (
-                        post?.map((item) => (
+                        post.length !==0 ?(
+                             post?.map((item) => (
                             <ItemCard key={item._id} item={item} />
                         ))
+                        ):
+                        (<DataNotFound message=' Data Not Found For You Search' />)
                     )
                 }
 
