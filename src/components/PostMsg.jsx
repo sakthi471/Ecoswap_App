@@ -9,7 +9,7 @@ const PostMsg = ({ itemID,postColor }) => {
     useEffect(() => {
         const getPostDetails = async (id) => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/browse/${id}`);
+                const res = await fetch(`/api/browse/${id}`);
                 const data = await res.json();
                 setPostMsg(data);
             } catch (error) {

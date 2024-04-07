@@ -11,7 +11,7 @@ const Post = ({ post, mutate }) => {
         const confirmValue = await AlertConfirm("Are you sure want to delete this post")
         if (confirmValue) {
 
-          await  fetch(`${process.env.NEXT_PUBLIC_API_URI}/user/post?id=${postId}`, {
+          await  fetch(`/api/user/post?id=${postId}`, {
                 method: 'DELETE',
             })
             mutate()
@@ -20,7 +20,7 @@ const Post = ({ post, mutate }) => {
 
     const handlePromised = async (id) => {
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/user/post?postId=${id}`, {
+            const res = await fetch(`/api/user/post?postId=${id}`, {
                 method: 'PATCH',
             })
 

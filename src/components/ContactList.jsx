@@ -14,7 +14,7 @@ const ContactList = ({setContact ,session}) => {
             try {
                 const userId =session.user.id;
                 setLoading(true)
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/user/contacts?userid=${userId}`,{cache:'no-store'})
+                const res = await fetch(`/api/user/contacts?userid=${userId}`,{cache:'no-store'})
                 const data = await res.json()
                 setLoading(false)
                 setContacts(data)

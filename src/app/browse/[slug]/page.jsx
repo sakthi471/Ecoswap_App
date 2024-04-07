@@ -5,7 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 
 const getItemDetails = async (id) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/browse/${id}`, { cache: 'no-store' })
+  const res = await fetch(`${process.env.BASE_URL}/api/browse/${id}`, { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
@@ -13,7 +13,7 @@ const getItemDetails = async (id) => {
 }
 
 const getUserDetails = async (userId) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/user?id=${userId}`, { cache: 'no-store' })
+  const res = await fetch(`${process.env.BASE_URL}/api/user?id=${userId}`, { cache: 'no-store' })
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }

@@ -13,7 +13,7 @@ import Loader from './Loader'
 const PostList = () => {
     const session = useSession()
     const userId = session?.data?.user.id
-    const { data, error, mutate, isLoading } = useSWR(`${process.env.NEXT_PUBLIC_API_URI}/user/post?id=${userId}`, fetcher)
+    const { data, error, mutate, isLoading } = useSWR(`/api/user/post?id=${userId}`, fetcher)
 
     return (
         <div className='flex w-[40%] flex-col gap-5  pr-5 overflow-auto h-[500px] '>

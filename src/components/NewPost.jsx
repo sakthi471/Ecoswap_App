@@ -50,7 +50,7 @@ const NewPost = (e) => {
                img,
                ...input
             }
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/new_post`, {
+            const res = await fetch(`/api/new_post`, {
                method: 'POST',
                body: JSON.stringify(newPost)
             })

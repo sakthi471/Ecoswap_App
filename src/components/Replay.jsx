@@ -14,7 +14,7 @@ const Replay = ({ userDetails, session, itemID }) => {
          const confirmation = await AlertConfirm("Are you sure want post this")
          console.log(confirmation);
          if(confirmation){
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/browse/message`, {
+            const res = await fetch(`/api/browse/message`, {
                method: 'POST',
                body: JSON.stringify({
                   message,

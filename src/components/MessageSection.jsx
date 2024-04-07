@@ -31,7 +31,7 @@ const MessageSection = ({ contact, session }) => {
                 senderID: session.user.id,
                 reciverID: contact._id
             }
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/user/messages`, {
+            const res = await fetch(`/api/user/messages`, {
                 method: 'POST',
                 body: JSON.stringify(newMessage)
             })
@@ -51,7 +51,7 @@ const MessageSection = ({ contact, session }) => {
         const getMessages = async () => {
             try {
                 setLoading(true)
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/user/messages?userid=${session.user.id}&reciverid=${contact?._id}`)
+                const res = await fetch(`/api/user/messages?userid=${session.user.id}&reciverid=${contact?._id}`)
                 const data = await res.json()
                 setLoading(false)
                 setMessages(data)

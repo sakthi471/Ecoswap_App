@@ -12,8 +12,9 @@ const Search = ({ setPost,setLoading ,page, setTotalPages}) => {
     }
     const timeout = setTimeout(async () => {
       setLoading(true)
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/browse?query=${searchQuery}&page=${page}&pageSize=${pageSize}`)
+      const res = await fetch(`/api/browse?query=${searchQuery}&page=${page}&pageSize=${pageSize}`)
       const data = await res.json()
+      console.log(data);
       setPost(data.posts)
       setTotalPages(data.totalPages)
       setLoading(false)
@@ -32,7 +33,7 @@ const Search = ({ setPost,setLoading ,page, setTotalPages}) => {
   return (
     <div className='  px-12 my-4'>
       <input onChange={handleSearchChange} value={searchQuery} className='px-4 py-2 w-[350px]  focus:outline-accent border-2  rounded-md border-slate-500 ' type="text" placeholder='Search ' />
-    </div>
+    </div> 
   )
 }
 
