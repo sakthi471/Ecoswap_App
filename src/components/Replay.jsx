@@ -8,21 +8,25 @@ const Replay = ({ userDetails, session, itemID }) => {
    const [replaySection, SetReplaySection] = useState(false)
    const router = useRouter()
    const [message, setMessage] = useState('')
-
+   console.log(userDetails);
    const messageSubmit = async () => {
       try {
          const confirmation = await AlertConfirm("Are you sure want post this")
          console.log(confirmation);
          if(confirmation){
+            const messageBody={
+               message,
+               senderID: session?.user?.id,
+               reciverID: userDetails?._id,
+               itemID,
+            }
+            // console.log(messageBody);
             const res = await fetch(`/api/browse/message`, {
                method: 'POST',
-               body: JSON.stringify({
-                  message,
-                  senderID: session?.user?.id,
-                  reciverID: userDetails?._id,
-                  itemID,
-               })
+               body: JSON.stringify(messageBody)
             })
+            console.log(await res.json())
+
             router.push('/dashboard')
          }
       
