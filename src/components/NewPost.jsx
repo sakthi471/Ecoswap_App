@@ -40,12 +40,12 @@ const NewPost = (e) => {
    const handleSubmit = async (e) => {
       try {
          e.preventDefault()
-         const confirmValue =await AlertConfirm("Are you sure want to post this ")
+         const confirmValue = await AlertConfirm("Are you sure want to post this ")
          console.log(confirmValue);
-          
+
          if (confirmValue) {
             setLoader(true)
-            
+
             const newPost = {
                img,
                ...input
@@ -67,24 +67,26 @@ const NewPost = (e) => {
    }
 
    return (
-      <form onSubmit={handleSubmit} className='flex shadow-2xl text-text w-full gap-5 flex-col p-12 rounded-md  items-center' >
+      <form onSubmit={handleSubmit} className='flex shadow-2xl text-text w-full gap-5 flex-col py-8 px-12 rounded-md  items-center' >
+         <h1 className=' font-bold text-xl py-2'>New Post </h1>
+
 
          <div className=' flex flex-col gap-1  w-full  ' >
-            <label className=' text-base font-semibold' htmlFor="postTitle">Post Tile</label>
+            <label className=' text-sm font-semibold' htmlFor="postTitle">Post Tile</label>
             <input value={input.title} onChange={handleInput} required name='title' className=' py-2 px-4 rounded-sm focus:outline-accent border-[1px] border-slate-500 ' id='postTitle' type="text" placeholder='eg: chess board' />
          </div>
          <div className=' flex flex-col gap-1  w-full  ' >
-            <label className=' text-base font-semibold' htmlFor="description">Description</label>
+            <label className=' text-sm font-semibold' htmlFor="description">Description</label>
             <textarea value={input.description} onChange={handleInput} name='description' rows={4} className='  resize-none border-[1px] border-slate-500 py-2 px-4 rounded-sm focus:outline-accent ' id='description' type="text" placeholder='size,color,condition,etc' ></textarea>
 
          </div>
          <div className=' flex flex-col gap-1  w-full  ' >
-            <label className=' text-base font-semibold' htmlFor="location">Location</label>
+            <label className=' text-sm font-semibold' htmlFor="location">Location</label>
             <input value={input.location} onChange={handleInput} required name='location' className=' py-2 px-4 rounded-sm focus:outline-accent border-[1px] border-slate-500 ' id='location' type="text" placeholder='Thiruparankundram,madurai' />
          </div>
 
          <div className=' flex flex-col gap-1  w-full  ' >
-            <label className=' text-base font-semibold' htmlFor="img">Image</label>
+            <label className=' text-sm font-semibold' htmlFor="img">Image</label>
             <input required name='img' onChange={handleImg} className=' w-full bg-white   text-sm  border border-slate-500  rounded-md cursor-pointer file:bg-primary text-slate-400 file:p-2 file:border-none file:cur file:text-white  focus:outline-none ' id='img' type="file" accept='image/*' />
             {img == '' || img == null ? "" : <img width={250} className='p-3' src={img} />}
          </div>

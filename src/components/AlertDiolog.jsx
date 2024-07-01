@@ -20,7 +20,7 @@ const AlertDialog = ({ isOpen, onClose, message,onConfirm }) => {
             {isOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-60">
                     <div className="bg-white w-[40%] p-8 rounded-lg shadow-lg">
-                        <p className="text-lg text-black">{message}</p>
+                        <p className=" text-slate-700 capitalize  ">{message}</p>
                         <div className="mt-4 flex justify-end gap-5 ">
                             <button onClick={handleClose} className="px-4 py-2 border-2 hover:bg-gray-200 border-gray-300  text-black rounded-md focus:outline-none">
                                 Cancel

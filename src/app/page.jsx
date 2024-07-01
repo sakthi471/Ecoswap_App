@@ -1,18 +1,20 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FaPlus } from "react-icons/fa6";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
+
 export default function Home() {
   return (
-    <div className="w-full min-h-full px-4 py-8 flex gap-5 flex-col  mt-16 ">
-         <div className=' flex flex-col gap-2'>
+    <div className="w-full min-h-full px-4 py-8 flex gap-5 flex-row items-center  justify-around mt-16 ">
+       <div>
+       <div className=' flex flex-col gap-2'>
          <h1 className=" text-4xl font-black  "> Want free stuff?</h1>
       <h1 className=" text-4xl font-semibold ">Got stuff to give away?</h1>
 
       <p className=" font-medium my-4 ">
         
-        This is site you can giving and getting free stuff in their local
-        communities
+         EcoSwap promotes and encourages sustainability!! 
       </p>
          </div>
     
@@ -31,6 +33,10 @@ export default function Home() {
          </Link>
         <p>items</p>
       </div>
+       </div>
+       <div className=" "> 
+          <Image src="http://localhost:3000/hero.gif" width={250} height={250} />
+       </div>
     </div>
   );
 }

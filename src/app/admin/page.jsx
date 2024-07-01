@@ -1,16 +1,19 @@
-'use client'
+import UserList from "@/components/UserList";
 
-import AlertConfirm from "@/utils/confirm";
+export const metadata = {
+    title: 'Admin',
+    description: 'Admin Page',
+}
+
+
 
 const MyPage = () => {
 
-    const handleClick = async () => {
-        const result = await AlertConfirm('Are you absolutely sure?');
-        console.log(result);
-    };
 
     return (
-        <button onClick={handleClick}>Click me</button>
+        <div className=" w-full">
+            <UserList />
+        </div>
     );
 };
 

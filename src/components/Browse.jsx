@@ -31,7 +31,8 @@ const Browse = () => {
             <Search setPost={setPost} setLoading={setLoading} page={page} setTotalPages={setTotalPages} />
             <div className=' flex w-full min-h-[300px] flex-wrap justify-center gap-14 py-8 items-center'>
                 {
-                    loading ? (<Loader message='please wait' size='50' />) : (
+                    loading ? ( Array(8).fill().map((_, i) => <ItemCard key={i} />)
+                ) : (
                         post.length !==0 ?(
                              post?.map((item) => (
                             <ItemCard key={item._id} item={item} />
@@ -43,8 +44,8 @@ const Browse = () => {
 
             </div>
             <div className='w-full flex gap-5 justify-center '>
-                <button  className={` hover:shadow-xl flex gap-2 items-center hover:bg-accent p-2 bg-primary  text-white rounded-md ${page==1? 'cursor-not-allowed opacity-50':''} `}  onClick={handlePreviousPage} disabled={page === 1}> <FaChevronLeft/>Previous </button>
-            <button  className={` hover:shadow-xl flex gap-2 items-center hover:bg-accent p-2 bg-primary text-white rounded-md ${page>=totalPages? 'cursor-not-allowed opacity-50':'' } `} onClick={handleNextPage} disabled={page >= totalPages} >Next <FaChevronRight/> </button>
+                <button  className={` hover:shadow-xl flex gap-2 items-center hover:bg-accent hover:text-white p-2 border-[1px] border-primary   text-primary rounded-md ${page==1? 'cursor-not-allowed opacity-50':''} `}  onClick={handlePreviousPage} disabled={page === 1}> <FaChevronLeft/> </button>
+            <button  className={` hover:shadow-xl flex gap-2 items-center hover:bg-accent hover:text-white p-2 border-[1px] border-primary  text-primary rounded-md ${page>=totalPages? 'cursor-not-allowed opacity-50':'' } `} onClick={handleNextPage} disabled={page >= totalPages} ><FaChevronRight/> </button>
             </div>
         </div>
     )

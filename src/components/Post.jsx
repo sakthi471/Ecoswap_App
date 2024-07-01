@@ -34,14 +34,13 @@ const Post = ({ post, mutate }) => {
 
     }
     return (
-        <div className='w-full flex items-start border-l-[4px] border-accent    h-[100px]  bg-secondary-light hover:shadow-md   duration-300 cursor-pointer '>
+        <div className='w-full flex items-start border-l-[4px] border-accent    min-h-[100px]  bg-secondary-light hover:shadow-md   duration-300 cursor-pointer '>
             <div className='w-[200px] relative  h-[100px]'>
                 <Image src={post.img} fill alt='test' className=' object-contain ' />
 
             </div>
             <div className='w-[60%] p-2 '>
-                <p className='font-semibold'> {post.title} </p>
-                <p>{post.description}</p>
+                <p className='font-semibold text-sm '> {post.title} </p>
                 <small>{post.timeAgo}</small>
             </div>
             <div className=' px-2 flex flex-col py-1 justify-around h-full '>
