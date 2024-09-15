@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const PostMsg = ({ itemID,postColor }) => {
+const PostMsg = ({ itemID, postColor }) => {
     const [postMsg, setPostMsg] = useState(null);
     // console.log(itemID);
 
@@ -19,27 +19,29 @@ const PostMsg = ({ itemID,postColor }) => {
 
         getPostDetails(itemID);
 
-      
+
     }, []);
 
     return (
-       <>
-        {
-            postMsg && (
-                <Link href={`/browse/${postMsg._id}`} >
-                <div className={`w-full  flex items-start gap-5 border-b-2   rounded-md    h-[100px] cursor-pointer ${postColor} `}>
-                    <div className='w-[200px] relative  h-[90px]'>
-                        <Image src={postMsg.img} fill alt='test' className=' object-contain ' />
-                    </div>
-                    <div className='w-[80%] p-2 '>
-                        <p className='font-semibold'> {postMsg.title} </p>
-                        <p>{postMsg.description}</p>
-                    </div>
-                </div>
-            </Link>
-            )
-        }
-       </>
+        <>
+            {
+                postMsg && (
+                    <Link href={`/browse/${postMsg._id}`} >
+                        <div className={`w-full  flex items-start gap-5 border-b-2   rounded-md    h-[100px] cursor-pointer ${postColor} `}>
+                            <div className='w-[200px] relative  h-[90px]'>
+                                <Image src={postMsg.img} fill alt='test' className=' object-contain ' />
+                            </div>
+                            <div className='w-[80%] p-2 '>
+                                <p className='font-semibold'> {postMsg.title} </p>
+                                <p>{postMsg.description.length > 40
+                                    ? `${postMsg.description.substring(0, 40)}...`
+                                    : postMsg.description }</p>
+                            </div>
+                        </div>
+                    </Link>
+                )
+            }
+        </>
     );
 };
 

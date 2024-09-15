@@ -73,16 +73,16 @@ const NewPost = (e) => {
 
          <div className=' flex flex-col gap-1  w-full  ' >
             <label className=' text-sm font-semibold' htmlFor="postTitle">Post Tile</label>
-            <input value={input.title} onChange={handleInput} required name='title' className=' py-2 px-4 rounded-sm focus:outline-accent border-[1px] border-slate-500 ' id='postTitle' type="text" placeholder='eg: chess board' />
+            <input value={input.title} onChange={handleInput} required name='title' className=' py-2 px-4 rounded-md focus:outline-accent border-[1px] border-slate-500 ' id='postTitle' type="text" placeholder='Eg: Chess board' />
          </div>
          <div className=' flex flex-col gap-1  w-full  ' >
             <label className=' text-sm font-semibold' htmlFor="description">Description</label>
-            <textarea value={input.description} onChange={handleInput} name='description' rows={4} className='  resize-none border-[1px] border-slate-500 py-2 px-4 rounded-sm focus:outline-accent ' id='description' type="text" placeholder='size,color,condition,etc' ></textarea>
+            <textarea value={input.description} onChange={handleInput} name='description' rows={4} className='  resize-none border-[1px] border-slate-500 py-2 px-4 rounded-md focus:outline-accent ' id='description' type="text" placeholder='Eg: size,color,condition,etc' ></textarea>
 
          </div>
          <div className=' flex flex-col gap-1  w-full  ' >
-            <label className=' text-sm font-semibold' htmlFor="location">Location</label>
-            <input value={input.location} onChange={handleInput} required name='location' className=' py-2 px-4 rounded-sm focus:outline-accent border-[1px] border-slate-500 ' id='location' type="text" placeholder='Thiruparankundram,madurai' />
+            <label className=' text-sm font-semibold' htmlFor="location">Year/Dept/Slot</label>
+            <input value={input.location} onChange={handleInput} required name='location' className=' py-2 px-4 rounded-md focus:outline-accent border-[1px] border-slate-500 ' id='location' type="text" placeholder='Eg: III year-CSE-Slot-A' />
          </div>
 
          <div className=' flex flex-col gap-1  w-full  ' >
@@ -98,7 +98,7 @@ const NewPost = (e) => {
 
 
 
-         <button type='submit' className=' font-bold bg-primary w-full p-2 rounded-sm  hover:bg-accent text-white '>Submit</button>
+         <button type='submit' className=' font-bold bg-primary w-full p-2 rounded-md  hover:bg-accent text-white '>Submit</button>
          {
             loader && <p>Loading....</p>
 

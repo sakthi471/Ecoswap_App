@@ -15,18 +15,18 @@ const LoginForm = () => {
       <form className=' w-[90%] flex flex-col gap-7' action={formAction}>
         <div className='flex flex-col'>
           <label htmlFor="username">User Name</label>
-          <input required className=' border-gray-500 border-[1px] outline-primary rounded-sm px-4 py-2' type="text" placeholder='username' name='username' />
+          <input required className=' border-gray-500 border-[1px] outline-primary rounded-md px-4 py-2' type="text" placeholder='Enter your username' name='username' />
         </div>
         <div className='flex flex-col'>
           <label htmlFor="password">Passoword</label>
-          <input required className=' border-gray-500 border-[1px] outline-primary rounded-sm px-4 py-2' type="password" name='password' placeholder='password' />
+          <input required className=' border-gray-500 border-[1px] outline-primary rounded-md px-4 py-2' type="password" name='password' placeholder='Enter your password' />
         </div>
-        <button className=' rounded-sm  bg-primary hover:bg-accent p-2 text-white '>Login</button>
+        <button className=' rounded-md  bg-primary hover:bg-accent p-2 text-white '>Login</button>
         {state?.error}
       </form>
       <span className=' text-slate-600' >or</span>
       <form className='w-[90%] flex-col items-center' action={handleGithubLogin}>
-        <button className=' rounded-sm bg-slate-800  hover:bg-slate-900 w-full p-2 text-white' >Login with github</button>
+        <button className=' rounded-md bg-slate-800  hover:bg-slate-900 w-full p-2 text-white' >Login with Github</button>
       </form>
     </div>
 

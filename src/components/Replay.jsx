@@ -50,9 +50,9 @@ const Replay = ({ userDetails, session, itemID }) => {
                <p className='font-bold text-green-500 py-1 '>New Message</p>
                <p className=' text-gray-500'>To :<span className='px-1 text-text font-bold'> {userDetails?.username} </span></p>
             </div>
-            <textarea onChange={(e) => setMessage(e.target.value)} placeholder='Write your Message here' className=' border-2 focus:outline-accent
+            <textarea required={true} onChange={(e) => setMessage(e.target.value)} placeholder='Write your Message here' className=' border-2 focus:outline-accent
                  rounded-sm border-gray-500 p-2' rows={5} ></textarea>
-            <button   onClick={() => messageSubmit()} className='  cursor-pointer bg-green-500 py-1 px-8 text-white rounded-sm '>Send Message</button>
+            <button    onClick={() => messageSubmit()} className='  cursor-pointer bg-green-500 py-1 px-8 text-white rounded-sm '>Send Message</button>
          </div>}
       </div>
    )

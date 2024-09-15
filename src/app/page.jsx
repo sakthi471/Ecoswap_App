@@ -3,6 +3,10 @@ import Link from "next/link";
 import { FaPlus } from "react-icons/fa6";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
+import Animation from "@/components/Animation";
+
+
+
 
 export default function Home() {
   return (
@@ -10,7 +14,7 @@ export default function Home() {
        <div>
        <div className=' flex flex-col gap-2'>
          <h1 className=" text-4xl font-black  "> Want free stuff?</h1>
-      <h1 className=" text-4xl font-semibold ">Got stuff to give away?</h1>
+      <h1 className=" text-4xl font-semibold ">Have stuff to give away?</h1>
 
       <p className=" font-medium my-4 ">
         
@@ -34,9 +38,7 @@ export default function Home() {
         <p>items</p>
       </div>
        </div>
-       <div className=" "> 
-          <Image src="http://localhost:3000/hero.gif" width={250} height={250} />
-       </div>
+       <Animation/>
     </div>
   );
 }
